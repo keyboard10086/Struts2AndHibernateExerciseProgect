@@ -39,6 +39,7 @@ public class LoginAction extends ActionSupport {
 		ad.setemail(email);
 		session.save(ad);
 		session.getTransaction().commit();
+		session.flush();
 		session.close();
 		return "success";
 	}

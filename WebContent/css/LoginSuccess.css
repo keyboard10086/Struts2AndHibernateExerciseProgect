@@ -3,7 +3,14 @@ table, td{
 	border:1px solid black;
 }
 
-#addStudentDiv1,#addSchoolButton{
+#addStudentDiv1,#addSchoolButton,#addContentResultDiv{
 	display:none;
 }
 
+span.textbox{
+	width:200px;
+}
+
+td.loaded{
+	text-align:center;
+}

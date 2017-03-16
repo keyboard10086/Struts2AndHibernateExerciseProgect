@@ -33,7 +33,7 @@ $(function(){
 	
 	$("#addSchoolButton").on("click",function(){
 		$.ajax({
-			url:"School_Add",
+			url:"tmp1_Add",
 			dataType:"json",
 			data:{
 				"name":$("input[name='name']").val(),
@@ -42,7 +42,18 @@ $(function(){
 				"email":$("input[name='email']").val()
 			}
 		}).done(function(data){
-			console.log(data);
+			$("#addContentResultDiv").css("display","block");
+			$("#addContentResultTable tr td").each(function(){
+				$(this).attr("class","loaded")
+			});
+			
+			$("#resultId").text(data.school.id);
+			$("td #resultName").text(data.school.name);
+			$("td #resultDistrict").text(data.school.district);
+			$("td #resultAddress").text(data.school.address);
+			$("td #resultEmail").text(data.school.email);
+			
+			
 		}).fail(function(e){
 			console.log(e);
 		})

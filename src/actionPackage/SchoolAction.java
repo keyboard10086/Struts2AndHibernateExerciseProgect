@@ -2,7 +2,6 @@ package actionPackage;
 
 import org.apache.struts2.json.annotations.JSON;
 import org.hibernate.Session;
-
 import com.opensymphony.xwork2.ActionSupport;
 
 import modelPackage.School;
