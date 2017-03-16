@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<constant name="struts.devMode" value="true"></constant>
+	<constant name="struts.enable.DynamicMethodInvocation" value="false"/>
+	<package name="SchooInfo" namespace="/SchoolInfo" extends="json-default">
+	<default-action-ref name="ErrorPage"></default-action-ref>
+		<action name="ErrorPage">
+			<result>
+				/WebPages/Error.html
+			</result>
+		</action> 
+		<action name="welcome">
+			<result>
+				/WelcomePage.html
+			</result>
+		</action>
+		<action name="Login">
+			<result>
+				/WebPages/Login.html
+			</result>
+		</action>
+		
+		<action name="tmp_*" class="actionPackage.LoginAction" method="{1}">
+			<result name="success">
+				/WebPages/LoginSuccess.html
+			</result>
+			<result name="fail">
+				/WebPages/LoginFail.html
+			</result>
+			<allowed-methods>Check,Add</allowed-methods>
+		</action>
+		
+		<action name="School_Add" class="actionPackage.SchoolAction" method="Add">
+			<result name="success" type="json">
+				<param name="content-type">application/json</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>

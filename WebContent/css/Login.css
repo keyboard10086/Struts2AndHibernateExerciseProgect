@@ -1,0 +1,18 @@
+@CHARSET "UTF-8";
+
+
+
+.back{
+	position:relative;
+	left:35%;
+}
+
+input{
+	width:auto;
+}
+
+div.loginDiv,div.registerDiv{
+	width:300px;
+	height:200px;
+	border:1px solid black
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+<script type="text/javascript" src="../js/jquery-core/jquery-3.1.1.js"></script>
+<link rel="stylesheet" href="../css/Login.css" />
+<script type="text/javascript" src="../js/PageJsFolder/Login.js"></script>
+</head>
+<body>
+	<div id ="loginDiv" class="loginDiv">
+		<form action="tmp_Check" method="GET">
+			<p>Login Form</p>
+			<label for="username">username:</label>
+			<input id="username" name="username" type="text"/><br>
+			<label for="password">password:</label>
+			<input id="password" name="password" type="text"/><br>
+			<input type="submit" id ="send" value="login"/>
+			<input type="button" id ="register" class="back" value="register"/>
+		</form>
+	</div>
+	<div id="registerDiv" class="registerDiv">
+		<form action="tmp_Add" method="GET">
+			<p>Register Form</p>
+			<label for="username_r">username:</label>
+			<input id="username_r" name="username" type="text"/><br>
+			<label for="password_r">password:</label>
+			<input id="password_r" name="password" type="text"/><br>
+			<label for="email_r">email:</label>
+			<input id="email_r" name="email" type="text"/><br>
+			<input type="submit" id ="registerbtn" value="register"/>
+			<input type="button" id ="backtologin" class="back" value="backtologin"/>
+		</form>
+	</div>
+</body>
+</html>
