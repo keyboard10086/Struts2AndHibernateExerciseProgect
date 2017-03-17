@@ -46,17 +46,19 @@ $(function(){
 			$("#addContentResultTable tr td").each(function(){
 				$(this).attr("class","loaded")
 			});
-			
+			console.log(data);
 			$("#resultId").text(data.school.id);
-			$("td #resultName").text(data.school.name);
-			$("td #resultDistrict").text(data.school.district);
-			$("td #resultAddress").text(data.school.address);
-			$("td #resultEmail").text(data.school.email);
+			$("#resultName").text(data.school.name);
+			$("#resultDistrict").text(data.school.district);
+			$("#resultAddress").text(data.school.address);
+			$("#resultEmail").text(data.school.email);
 			
 			
 		}).fail(function(e){
 			console.log(e);
 		})
 	})
+	
+	
 	
 });

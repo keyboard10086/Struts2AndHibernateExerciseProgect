@@ -21,7 +21,6 @@ public class SchoolAction extends ActionSupport {
 		this.school = school;
 	}
 
-	HibernateGetConfiguration HGC = new HibernateGetConfiguration();
 	Session session;
 	
 	public String Add(){
@@ -32,8 +31,7 @@ public class SchoolAction extends ActionSupport {
 		school.setEmail(email);
 		
 		try{
-			HGC.setUp();
-			session = HGC.getSessionFactory().openSession();
+			session = HibernateGetConfiguration.getSessionFactory().openSession();
 			session.beginTransaction();
 			session.save(school);
 			session.getTransaction().commit();

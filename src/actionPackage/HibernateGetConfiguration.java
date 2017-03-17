@@ -9,17 +9,19 @@ import com.mysql.jdbc.*;
 
 public class HibernateGetConfiguration {
 	
-	private SessionFactory sessionFactory;
+	private static SessionFactory sessionFactory;
+	private static boolean init = false;
 	
-	public SessionFactory getSessionFactory() {
+	
+	public static boolean isInit() {
+		return init;
+	}
+
+	public static SessionFactory getSessionFactory() {
 		return sessionFactory;
 	}
 
-	public void setSessionFactory(SessionFactory sessionFactory) {
-		this.sessionFactory = sessionFactory;
-	}
-
-	protected void setUp() throws Exception {
+	protected static void setUp() throws Exception {
 		
 		// A SessionFactory is set up once for an application!
 		final StandardServiceRegistry registry = new StandardServiceRegistryBuilder()
@@ -27,6 +29,7 @@ public class HibernateGetConfiguration {
 				.build();
 		try {
 			sessionFactory = new MetadataSources( registry ).buildMetadata().buildSessionFactory();
+			init = true;
 		}
 		catch (Exception e) {
 			// The registry would be destroyed by the SessionFactory, but we had trouble building the SessionFactory

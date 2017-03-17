@@ -8,8 +8,12 @@ import com.opensymphony.xwork2.ActionSupport;
 public class WelcomeAction extends ActionSupport {
 	
 	private static final Logger logger = LogManager.getLogger(LogManager.ROOT_LOGGER_NAME);
+	
 	public String getLogger() throws Exception{
 		logger.trace("trace level");
+		if(!HibernateGetConfiguration.isInit()){
+			HibernateGetConfiguration.setUp();
+		}
 		return "success";
 	}
 }

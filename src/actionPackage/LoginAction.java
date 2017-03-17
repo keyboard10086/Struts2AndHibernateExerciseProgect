@@ -14,7 +14,6 @@ public class LoginAction extends ActionSupport {
 	public String username;
 	public String password;
 	public String email;
-	HibernateGetConfiguration HGC = new HibernateGetConfiguration();
 	Session session;
 	
 	public String excute() throws Exception{
@@ -30,8 +29,7 @@ public class LoginAction extends ActionSupport {
 	}
 	
 	public String Add()throws Exception{
-		HGC.setUp();
-		session = HGC.getSessionFactory().openSession();
+		session = HibernateGetConfiguration.getSessionFactory().openSession();
 		session.beginTransaction();
 		Administrator ad = new Administrator();
 		ad.setname(username);
@@ -46,8 +44,7 @@ public class LoginAction extends ActionSupport {
 	
 	public boolean checkExsit() throws Exception{
 		
-		HGC.setUp();
-		session = HGC.getSessionFactory().openSession();
+		session = HibernateGetConfiguration.getSessionFactory().openSession();
 		session.beginTransaction();
 		List<Object> result = session.createQuery("select password from Administrator where name = '" + username+"'").list();
 		session.close();
