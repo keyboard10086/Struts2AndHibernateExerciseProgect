@@ -3,6 +3,11 @@ table, td{
 	border:1px solid black;
 }
 
+#addContentResultTable{
+	float:left;
+	align:center;
+}
+
 #addStudentDiv1,#addSchoolButton,#addContentResultDiv{
 	display:none;
 }
@@ -13,5 +18,5 @@ span.textbox{
 
 td.loaded{
 	text-align:center;
-	color:#ff00ff;
+	color:#00aaff;
 }

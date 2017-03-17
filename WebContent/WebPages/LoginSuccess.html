@@ -7,9 +7,11 @@
 <script type="text/javascript" src="../js/j-easy-ui/jquery.easyui.min.js"></script>
 <script type="text/javascript" src="../js/j-easy-ui/add-ons/jquery.searchbox.js"></script>
 <script type="text/javascript" src="../js/PageJsFolder/LoginSuccess.js"></script>
+<script type="text/javascript" src="../js/j-easy-ui/jquery.dataTables.js"></script>
 
 <link rel="stylesheet" type="text/css" href="../css/easyui.css">
 <link rel="stylesheet" type="text/css" href="../css/LoginSuccess.css">
+<link rel="stylesheet" type="text/css" href="../css/jquery.dataTables.min.css">
 </head>
 <body>
 	<div>
@@ -31,19 +33,15 @@
     			<input type="button" id="addSchoolButton" name="addSchoolButton" value="addSchool">
     			<div id="addContentResultDiv">
     				<table id="addContentResultTable">
+    					<th colspan="5">
+    						TableContentFromTableSchools
+    					</th>
     					<tr>
-    						<td>Id</td>
+    						<td>ID</td>
     						<td>Name</td>
     						<td>District</td>
     						<td>Address</td>
     						<td>Email</td>
-    					</tr>
-    					<tr>
-    						<td id="resultId"></td>
-    						<td id="resultName"></td>
-    						<td id="resultDistrict"></td>
-    						<td id="resultAddress"></td>
-    						<td id="resultEmail"></td>
     					</tr>
     				</table>
     			</div>
