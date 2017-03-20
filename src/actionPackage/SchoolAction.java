@@ -1,5 +1,8 @@
 package actionPackage;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.struts2.json.annotations.JSON;
 import org.hibernate.Session;
 import com.opensymphony.xwork2.ActionSupport;
@@ -12,7 +15,12 @@ public class SchoolAction extends ActionSupport {
 	public String address;
 	public String email;
 	private School school;
+	private List<School> schools = new ArrayList<School>();
 	
+	@JSON(serialize=true)
+	public List<School> getSchools() {
+		return schools;
+	}
 	@JSON(serialize=true)
 	public School getSchool() {
 		return school;
@@ -23,6 +31,7 @@ public class SchoolAction extends ActionSupport {
 
 	Session session;
 	
+	@SuppressWarnings("unchecked")
 	public String Add(){
 		school = new School();
 		school.setName(name);
@@ -34,6 +43,7 @@ public class SchoolAction extends ActionSupport {
 			session = HibernateGetConfiguration.getSessionFactory().openSession();
 			session.beginTransaction();
 			session.save(school);
+			schools = (List<School>)session.createQuery("select s from School s").list();
 			session.getTransaction().commit();
 		}catch(Exception e){
 			session.close();
@@ -42,11 +52,6 @@ public class SchoolAction extends ActionSupport {
 		}finally{
 			session.close();
 		}
-		return "success";
-	}
-	
-	public String LoadInfo(){
-		
 		return "success";
 	}
 }

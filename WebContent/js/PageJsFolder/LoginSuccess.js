@@ -41,9 +41,29 @@ $(function(){
 				"address":$("input[name='address']").val(),
 				"email":$("input[name='email']").val()
 			}
-		}).done(function(){
+		}).done(function(data){
 			$("#addContentResultDiv").css("display","block");
-			$("#addContentResultTable").DataTable();
+			var tmp = [],tmpColumn = [];
+			for(var i=0;i<data.schools.length;i++){
+				tmpColumn = [];
+				tmpColumn.push(data.schools[i].id);
+				tmpColumn.push(data.schools[i].name);
+				tmpColumn.push(data.schools[i].district);
+				tmpColumn.push(data.schools[i].address);
+				tmpColumn.push(data.schools[i].email);
+				tmp.push(tmpColumn);
+			}
+			$("#addContentResultTable").DataTable({
+				data: tmp,
+		        columns: [
+		            { title: "Id" },
+		            { title: "Name" },
+		            { title: "District" },
+		            { title: "Address" },
+		            { title: "Email" }
+		        ]
+			});
+			console.log(data.schools);
 		}).fail(function(e){
 			console.log(e);
 		})
